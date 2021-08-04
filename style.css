@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --overlay-color: #006699;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.showcase {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #111; */
+  color: white;
+  z-index: -1;
+}
+
+.showcase header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-image: url("menu.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* if a space is between toggle and active, it means we are looking for an element inside of toggle with a class of toggle.
+no space means that we are looking for a class off active ON the element with toggle attribute */
+.toggle.active {
+  background-image: url("close.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  right: 260px;
+}
+
+.showcase video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* can also use rgba() */
+  background-color: var(--overlay-color);
+  mix-blend-mode: overlay;
+}
+
+.text {
+  position: relative;
+  z-index: 10;
+  bottom: 100px;
+}
+
+.text h2 {
+  font-size: 4.5em;
+  font-weight: 800;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text h3 {
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text p {
+  font-size: 1.3em;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
+}
+
+/* letter spacing can be useful to draw attention to call to actions */
+.text a {
+  display: inline-block;
+  font-size: 1em;
+  background-color: #ffc600;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: #111;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* the transition is set in the current state. the transition only activates/applys when in hover state*/
+  transition: 0.2s;
+  border: 1px solid #ffc600;
+  transition: 0.2s;
+}
+
+.text a:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffc600;
+  transform: scale(1.1);
+}
+
+.social {
+  position: absolute;
+  bottom: 40px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social li {
+  list-style: none;
+}
+
+/* look up filter invert(1) 
+transform: scale(1) is the default*/
+.social li a {
+  display: inline-block;
+  filter: invert(1);
+  margin-right: 20px;
+  transform: scale(0.5);
+  transition: 0.2s;
+}
+
+.social li a img {
+  height: 80px;
+}
+
+.social li a:hover {
+  transform: scale(0.5) translateY(-15px);
+}
+
+.menu-outer {
+  position: absolute;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  background-color: white;
+  transition: 0.3s;
+  list-style: none;
+}
+
+.menu-inner {
+  list-style: none;
+}
+
+.menu-inner li a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #006699;
+}
+
+.menu-inner li a:hover {
+  color: #ffc600;
+}
+
+.menu-outer.active {
+  right: 0;
+}
+
+/* 991px and under these styles will apply */
+@media (max-width: 800px) {
+  .showcase,
+  .showcase header {
+    padding: 40px;
+  }
+
+  .text h2 {
+    font-size: 3em;
+  }
+
+  .text h3 {
+    font-size: 2em;
+  }
+}
+
+.thanks {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.toggle.active {
+  background-color: #ffc600;
+}
